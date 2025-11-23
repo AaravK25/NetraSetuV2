@@ -84,7 +84,9 @@ Files referenced
 - [report.txt](report.txt)
 
 Division of work:
+
 -Back - end: Aarav Koul, Unicode Braille System, Speech Recognition, Edge-TTS, Ollama.
+
 -front - end: Aniruddha Sahoo, Adithya Vivek, flet, pyttsx3, speech recognition.
 
 DISCLOSURES: GitHub Copilot (GPT-5 mini) used for debugging and assistance in front-end and implentation of features from scripts NetraSetu.py and VoiceAI.py
