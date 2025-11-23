@@ -47,7 +47,7 @@ def run_speech_to_text_chinese(device_index,language):
     SpeechToText.speech_to_text(device_index,language)
 
 if __name__ == "__main__":
-    # check_mic_device_index()
-    run_speech_to_text_english(device_index=1)
+    check_mic_device_index()
+    # run_speech_to_text_english(device_index=1)
     # run_speech_to_text_hindi(device_index=1)
     # run_speech_to_text_malayalam(device_index=1)
