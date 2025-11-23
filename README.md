@@ -55,7 +55,7 @@ Architecture (high level)
   - voice assistant chat: VoiceAI.py — VoiceAI.genchat
   - STT helpers/test: STT.py, STTtest.py
 
-Quick setup (recommended)
+Quick setup 
 
 1. Install Python 3.10+ and create a virtual environment
 2. install common dependencies
