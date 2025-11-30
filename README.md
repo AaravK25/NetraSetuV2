@@ -29,7 +29,7 @@ Conclusion:
 The current teaching process is person dependant , so the actual knowledge transfer cannot be quantified and there is no inclusivity being adhered
 The product would be demo’d to the schools  to get the actual buy in. Based on the scalability of the product deployment  the investors as corporates would be engaged with  the help of NGO/government grant accordingly. Training camps would be organized  to set the expectations  for the teachers  so that  the real benefit would pass on  to the students.
   
-Tech stack
+## Tech stack
 - Python (project code in scripts/*.py)
 - Flet for UI (single-file app UI + router) — main UI in NetraSetuApp.main and view factories: NetraSetuApp.home_page, NetraSetuApp.braille_page, NetraSetuApp.ai_assistant_page, NetraSetuApp.learning_hub, NetraSetuApp.summary_page, NetraSetuApp.report_page, NetraSetuApp.mindmap_page
 - Speech recognition: SpeechRecognition library (uses Google recognizer by default) — continuous listening in NetraSetuApp.listen_continuously and STT helpers in STT.speech_to_text / STTtest
@@ -39,7 +39,7 @@ Tech stack
 - Braille conversion utility: NetraSetu.texttobraille
 - Other utilities: playsound, keyboard
 
-Architecture (high level)
+## Architecture (high level)
 - Single-process Python app with threads:
   - UI layer: Flet view router backed by NetraSetuApp.main
   - Background TTS worker: NetraSetuApp.tts_worker + tts_queue and exposed helper NetraSetuApp.speak
@@ -55,24 +55,24 @@ Architecture (high level)
   - voice assistant chat: VoiceAI.py — VoiceAI.genchat
   - STT helpers/test: STT.py, STTtest.py
 
-Quick setup 
+## Quick setup 
 
 1. Install Python 3.10+ and create a virtual environment
 2. install common dependencies
 pip install flet pyttsx3 SpeechRecognition keyboard playsound ollama edge-tts pyaudio 
 
 
-Run the app NetraSetuApp.py
+## Run the app NetraSetuApp.py
 - This launches the Flet app which calls [NetraSetuApp.main](scripts/NetraSetuApp.py) and starts background listeners/threads.
 
-Notes & operational details
+## Notes & operational details
 - Ollama: the project calls Ollama locally in [NetraSetu.summary](scripts/NetraSetu.py) and [VoiceAI.genchat](scripts/VoiceAI.py). Ensure an Ollama service/model (gemma3:1b) is available and accessible.
 - Microphone permissions: the continuous listener uses the default microphone in [NetraSetuApp.listen_continuously](scripts/NetraSetuApp.py). Provide OS microphone permission and confirm device indices using STT test scripts ([scripts/STTtest.py](scripts/STTtest.py)).
 - Braille conversion: use [NetraSetu.texttobraille](scripts/NetraSetu.py) — generated outputs are written to [summary.txt](summary.txt), [report.txt](report.txt), [mindmap.txt](mindmap.txt)
 - Assistant chat: [VoiceAI.genchat](scripts/VoiceAI.py) uses keyboard-based recording (hold SPACE) and streams TTS via edge-tts; run in background thread via [NetraSetuApp.ai_assistant_page](scripts/NetraSetuApp.py)
 - File paths: uploaded files are written to [my_document.txt](my_document.txt) by the upload handler in [NetraSetuApp.home_page](scripts/NetraSetuApp.py)
 
-Files referenced
+## Files referenced
 - [scripts/NetraSetuApp.py](scripts/NetraSetuApp.py)
 - [scripts/NetraSetu.py](scripts/NetraSetu.py)
 - [scripts/VoiceAI.py](scripts/VoiceAI.py)
@@ -83,7 +83,7 @@ Files referenced
 - [mindmap.txt](mindmap.txt)
 - [report.txt](report.txt)
 
-Division of work:
+## Division of work:
 
 -Back - end: Aarav Koul, Unicode Braille System, Speech Recognition, Edge-TTS, Ollama.
 
