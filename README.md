@@ -91,3 +91,8 @@ Division of work:
 
 DISCLOSURES: GitHub Copilot (GPT-5 mini) used for debugging and assistance in front-end and implentation of features from scripts NetraSetu.py and VoiceAI.py
 
+## License
+
+This project is licensed under the BSD 3-Clause License. Attribution is required.
+
+Please credit: Aarav Koul, Aniruddha Sahoo, and Adithya Vivek.
