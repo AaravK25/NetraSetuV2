@@ -116,16 +116,44 @@ def texttobraille(input_str: str):
 
 def summary(text: str) -> str:
     prompt = f"Summarize the following text in a concise manner:\n\n{text}\n\nSummary:"
-    response = ollama.chat(model="gemma3:1b", messages=[{"role": "user", "content": prompt}])
+    response = ollama.chat(model="gemma3:4b", messages=[{"role": "user", "content": prompt}])
     return response['message']['content']
 
 def report(text: str) -> str:
-    prompt = f"Generate a detailed report based on the following information:\n\n{text}\n\nReport:"
-    response = ollama.chat(model="gemma3:1b", messages=[{"role": "user", "content": prompt}])
+    prompt = f"Generate a detailed report based on the following information for a student:\n\n{text}\n\nReport:"
+    response = ollama.chat(model="gemma3:4b", messages=[{"role": "user", "content": prompt}])
     return response['message']['content']
 
 def mindmap(text: str) -> str:
-    prompt = f"Create a mind map outline based on the following content in a form like this XXXXXXXXX -----------------XXXXXXXX:\n\n{text}\n\nMind Map:"
-    response = ollama.chat(model="gemma3:1b", messages=[{"role": "user", "content": prompt}])
-    return response['message']['content']
+    prompt = (
+        "Create a clean mind map outline from the following content.\n"
+        "Use THIS EXACT STRUCTURE:\n\n"
+        "Title 1\n"
+        "|\n"
+        "|\n"
+        "|---- Subtopic 1\n"
+        "|       1.Point 1 ; 2.point 2\n"  
+        "|\n"
+        "Title 2\n"
+        "|\n"
+        "|\n"
+        "|---- Subtopic 2\n\n"
+        "|       1.Point 1 ; 2.point 2\n\n"
+        "Rules:\n"
+        "- Each title must be on its own line.\n"
+        "- After each title, add two vertical '|' lines.\n"
+        "- For each title, list its subtopics using: |---- <subtopic>\n"
+        "- Under each subtopic, list points as numbered items separated by semicolons.\n"
+        "- Add a '|' line between each major block.\n"
+        "- Keep the formatting exactly as shown.\n\n"
+        f"Content:\n{text}\n\n"
+        "Mind Map:"
+    )
+
+    response = ollama.chat(
+        model="gemma3:4b",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response["message"]["content"]
+
 

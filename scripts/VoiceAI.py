@@ -66,7 +66,7 @@ def genchat():
         assistant_reply = ""
 
         stream = ollama.chat(
-            model="gemma3:1b",
+            model="gemma3:4b",
             messages=history,
             stream=True
         )
