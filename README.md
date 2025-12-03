@@ -66,7 +66,7 @@ pip install flet pyttsx3 SpeechRecognition keyboard playsound ollama edge-tts py
 - This launches the Flet app which calls [NetraSetuApp.main](scripts/NetraSetuApp.py) and starts background listeners/threads.
 
 ## Notes & operational details
-- Ollama: the project calls Ollama locally in [NetraSetu.summary](scripts/NetraSetu.py) and [VoiceAI.genchat](scripts/VoiceAI.py). Ensure an Ollama service/model (gemma3:1b) is available and accessible.
+- Ollama: the project calls Ollama locally in [NetraSetu.summary](scripts/NetraSetu.py) and [VoiceAI.genchat](scripts/VoiceAI.py). Ensure an Ollama service/model (gemma3:4b) is available and accessible.
 - Microphone permissions: the continuous listener uses the default microphone in [NetraSetuApp.listen_continuously](scripts/NetraSetuApp.py). Provide OS microphone permission and confirm device indices using STT test scripts ([scripts/STTtest.py](scripts/STTtest.py)).
 - Braille conversion: use [NetraSetu.texttobraille](scripts/NetraSetu.py) — generated outputs are written to [summary.txt](summary.txt), [report.txt](report.txt), [mindmap.txt](mindmap.txt)
 - Assistant chat: [VoiceAI.genchat](scripts/VoiceAI.py) uses keyboard-based recording (hold SPACE) and streams TTS via edge-tts; run in background thread via [NetraSetuApp.ai_assistant_page](scripts/NetraSetuApp.py)
